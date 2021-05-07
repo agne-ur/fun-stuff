@@ -26,15 +26,26 @@ const style = {
   }
 
 function InformationTable(props) {
+    
+
     return (
       <table style={style.table} className="informationTable">
         <thead>
           <tr>
-            <th style={style.tableCell}>First name</th>
+            <th style={style.tableCell}>First Name</th>
             <th style={style.tableCell}>Last name</th>
             <th style={style.tableCell}>Phone</th>
           </tr>
         </thead>
+            {props.data.map((user, index) => {
+                return (
+                    <tr key={index}>
+                        <td>{user.firstName}</td>
+                        <td>{user.lastName}</td>
+                        <td>{user.phoneNumber}</td>
+                    </tr>   
+                )
+            })}
       </table>
     );
   }
