@@ -27,10 +27,16 @@ const style = {
 }
 
 function PhoneBookForm({ addEntryToPhoneBook }) {
+  const [firstName, setfirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+
         return (
           <form
             onSubmit={(e) => {
               e.preventDefault();
+              console.log(firstName, lastName, phoneNumber)
             }}
             style={style.form.container}
           >
@@ -41,6 +47,10 @@ function PhoneBookForm({ addEntryToPhoneBook }) {
               className="userFirstname"
               name="userFirstname"
               type="text"
+              placeholder="Coder"
+              onChange={e => {
+                setfirstName(e.target.value);
+              }}
             />
             <br />
             <label>Last name:</label>
@@ -50,6 +60,9 @@ function PhoneBookForm({ addEntryToPhoneBook }) {
         className="userLastname"
         name="userLastname"
         type="text"
+        onChange={e => {
+          setLastName(e.target.value);
+        }}
       />
       <br />
       <label>Phone:</label>
@@ -59,6 +72,9 @@ function PhoneBookForm({ addEntryToPhoneBook }) {
         className="userPhone"
         name="userPhone"
         type="text"
+        onChange={e => {
+          setPhoneNumber(e.target.value);
+        }}
       />
       <br />
       <input
