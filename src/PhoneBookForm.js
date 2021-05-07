@@ -26,7 +26,7 @@ const style = {
   }
 }
 
-function PhoneBookForm({ addEntryToPhoneBook }) {
+function PhoneBookForm(props) {
   const [firstName, setfirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -36,7 +36,7 @@ function PhoneBookForm({ addEntryToPhoneBook }) {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              console.log(firstName, lastName, phoneNumber)
+              props.getNewUser(firstName, lastName, phoneNumber);
             }}
             style={style.form.container}
           >
